@@ -1,1 +1,4 @@
-const pagination = document.getElementsByClassName(".student-list");
+const pagination = (document.getElementsByClassName(
+  ".student-list"
+).style.display =
+  "none");
