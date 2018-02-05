@@ -24,4 +24,8 @@ function showPage(pageNumber, studentLists) {
 
 function appendPageLinks(studentLists) {
   let pageNumber = Math.ceil(studentLists.length / 10);
+  let pageLinks = `<div class="pagination">`;
+  for (let i = 0; i < pageNumber + 1; i++) {
+    pageLinks += `<li> <a href="#">  ${i}<a/> <li>`;
+  }
 }
