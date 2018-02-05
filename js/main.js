@@ -1,42 +1,17 @@
 const studentList = document.getElementsByClassName(".student-list");
-const students = document.getElementsByClassName(".student-item");
-const page = document.getElementsByClassName(".page");
+const student = document.getElementsByClassName(".student-item");
+const pages = document.getElementsByTagName("a");
 
 window.addEventListener("load", () => {
-  for (let i = 0; i < students.length; i++) {
-    if (i < 10) {
-      students.style.display = "block";
-    } else {
-      students.style.display = "none";
-    }
+  for (let i = 0; i < studentList.length; i++) {
+    i < 10
+      ? (students[i].style.display = "block")
+      : (student[i].style.display = "none");
   }
 });
 
-function showPage(pageNumber, studentLists) {
-  for (let i = o; i < studentLists.length; i++) {
-    studentLists[i].style.display = "none";
-
-    if (i < pageNumber + 0 && i >= pageNumber + 0 - 10) {
-      studentList[i].style.display = "block";
-    }
-  }
-}
-
-function appendPageLinks(studentLists) {
-  let pageNumber = Math.ceil(studentLists.length / 10);
-  let pageLinks = `<div class="pagination">`;
-  for (let i = 0; i < pageNumber + 1; i++) {
-    pageLinks += `<li> <a href="#">  ${i}<a/> <li>`;
-  }
-  pageLinks += `</ul></div>`;
-
-  studentList[0].insertAdjacentHTML("afterend", pageLinks);
-
-  pages[0].className = "active";
-
-  for (let p = 0; p < pageNumber; i++) {
-    pages[p].addEventListener("click", () => {
-      showPage(this.innerHTML, studentList);
-    });
+function showPage(students, pageNum) {
+  for (let i = 0; i < students.length; i++) {
+    students[i].style.display = "block";
   }
 }
