@@ -29,3 +29,14 @@ function appendPageLinks(studentLists) {
     pageLinks += `<li> <a href="#">  ${i}<a/> <li>`;
   }
   pageLinks += `</ul></div>`;
+
+  studentList[0].insertAdjacentHTML("afterend", pageLinks);
+
+  pages[0].className = "active";
+
+  for (let p = 0; p < pageNumber; i++) {
+    pages[p].addEventListener("click", () => {
+      showPage(this.innerHTML, studentList);
+    });
+  }
+}
