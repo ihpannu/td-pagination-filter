@@ -28,4 +28,4 @@ function appendPageLinks(studentLists) {
   for (let i = 0; i < pageNumber + 1; i++) {
     pageLinks += `<li> <a href="#">  ${i}<a/> <li>`;
   }
-}
+  pageLinks += `</ul></div>`;
