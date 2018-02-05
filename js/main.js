@@ -11,3 +11,17 @@ window.addEventListener("load", () => {
     }
   }
 });
+
+function showPage(pageNumber, studentLists) {
+  for (let i = o; i < studentLists.length; i++) {
+    studentLists[i].style.display = "none";
+
+    if (i < pageNumber + 0 && i >= pageNumber + 0 - 10) {
+      studentList[i].style.display = "block";
+    }
+  }
+}
+
+function appendPageLinks(studentLists) {
+  let pageNumber = Math.ceil(studentLists.length / 10);
+}
