@@ -32,6 +32,10 @@ function appendPageLinks(studentList) {
   for (let b = 0; b < pageNum; b++  ) {
       pages[b].addEventListener('click', e => {
           showPage(this.innerHTML, studentList);
+          for (let c = 0; c < pageNum; c++) {
+              pages[c].className = '';
+          }
+          this.className = 'active';
       }
   }
 }
