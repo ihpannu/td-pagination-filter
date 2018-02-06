@@ -51,7 +51,7 @@ function searchList() {
   );
 
   const searchButton = document.getElementsByTagName("button");
-  searchButton[0].addEventListener("click", function() {
+  searchButton[0].addEventListener("click", () => {
     const searchInput = document.getElementsByTagName("input");
     let searchValue = searchInput[0].value;
     const studentNames = document.getElementsByTagName("h3");
@@ -101,8 +101,8 @@ function searchList() {
 // const pages = document.getElementsByTagName("a");
 // const ulContainer = document.getElementsByClassName("student-list");
 
-// window.addEventListener("load", function() {
-//   for (var i = 0; i < students.length; i++) {
+// window.addEventListener("load", () => {
+//   for (let i = 0; i < students.length; i++) {
 //     if (i < 10) {
 //       students[i].style.display = "block";
 //     } else {
@@ -127,7 +127,7 @@ function searchList() {
 //   let pageNum = Math.ceil(studentList.length / 10);
 //   let pageLink = '<div class="pagination"><ul>';
 //   for (let i = 1; i < pageNum + 1; i++) {
-//     pageLink += '<li><a href="#">' + i + "</a></li>";
+//     pageLink += `<li><a href="#">${i}</a></li>`;
 //   }
 //   pageLink += "</ul></div>";
 
@@ -155,7 +155,7 @@ function searchList() {
 //   );
 
 //   const searchButton = document.getElementsByTagName("button");
-//   searchButton[0].addEventListener("click", function() {
+//   searchButton[0].addEventListener("click", () => {
 //     const searchInput = document.getElementsByTagName("input");
 //     let searchValue = searchInput[0].value;
 //     const studentNames = document.getElementsByTagName("h3");

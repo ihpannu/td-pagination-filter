@@ -2,19 +2,28 @@ const ulContainer = document.getElementsByClassName("student-list");
 const students = document.getElementsByClassName("student-item");
 const pages = document.getElementsByTagName("a");
 
+// This shows only 10 students when page loads
 window.addEventListener("load", () => {
   for (let i = 0; i < students.length; i++) {
+    // Used Ternary Operator instead of if and else
     i < 10
-      ? (students[i].style.display = "block")
-      : (students[i].style.display = "none");
+      ? (students[i].style.display = "block") // if
+      : (students[i].style.display = "none"); // else
   }
+  // This appends the pagination to page
   appendPageLinks(students);
+  searchList();
 });
 
+// Function to show only 10 students per page
 function showPage(pageNumber, studentList) {
+  // loop through studentlist and hide the students
   for (let i = 0; i < studentList.length; i++) {
+    // this hides the students
     studentList[i].style.display = "none";
+    // this statement checks if which student to show
     if (i < pageNumber + 0 && i >= pageNumber + 0 - 10) {
+      // If sets the student to block
       studentList[i].style.display = "block";
     }
   }
@@ -41,58 +50,4 @@ function appendPageLinks(studentList) {
       this.className = "active";
     });
   }
-}
-
-function searchList() {
-  const searchPlace = document.querySelector("div.page-header");
-  searchPlace.insertAdjacentHTML(
-    "beforeend",
-    '<div class="student-search"><input placeholder="Search for students..."><button>Search</button></div>'
-  );
-
-  const searchButton = document.getElementsByTagName("button");
-  searchButton[0].addEventListener("click", function() {
-    const searchInput = document.getElementsByTagName("input");
-    let searchValue = searchInput[0].value;
-    const studentNames = document.getElementsByTagName("h3");
-    const studentEmails = document.getElementsByClassName("email");
-    let studentMatchArr = [];
-
-    document.querySelector(".pagination").remove();
-
-    for (let i = 0; i < students.length; i++) {
-      students[i].style.display = "none";
-
-      const indexOfStudents = studentNames[i].innerHTML
-        .toUpperCase()
-        .indexOf(searchValue.toUpperCase());
-      const indexOfEmails = studentEmails[i].innerHTML
-        .toUpperCase()
-        .indexOf(searchValue.toUpperCase());
-      if (indexOfStudents > -1 || indexOfEmails > -1) {
-        studentMatchArr.push(students[i]);
-      }
-    }
-
-    const studentsFoundDiv = document.getElementsByClassName("found");
-    if (searchValue.length === 0) {
-      appendPageLinks(students);
-    }
-
-    if (studentMatchArr.length > 0) {
-      for (var i = 0; i < studentMatchArr.length; i++) {
-        studentMatchArr[i].style.display = "block";
-      }
-      if (studentsFoundDiv.length === 1) {
-        studentsFoundDiv[0].remove();
-      }
-    } else {
-      if (studentsFoundDiv.length === 0) {
-        ulContainer[0].insertAdjacentHTML(
-          "afterend",
-          "<div class='found'>No Student's Found</div>"
-        );
-      }
-    }
-  });
 }
