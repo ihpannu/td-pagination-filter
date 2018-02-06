@@ -12,7 +12,6 @@ window.addEventListener("load", () => {
   }
   // This appends the pagination to page
   appendPageLinks(students);
-  searchList();
 });
 
 // Function to show only 10 students per page
@@ -29,18 +28,24 @@ function showPage(pageNumber, studentList) {
   }
 }
 
+// This function creates the page links and appends the list to the page
 function appendPageLinks(studentList) {
+  // This determine how many pages required for student list
   let pageNum = Math.ceil(studentList.length / 10);
+  // THis creates page link section
   let pageLink = '<div class="pagination"><ul>';
   for (let i = 1; i < pageNum + 1; i++) {
     pageLink += `<li><a class="active" href="#">${i}</a></li>`;
   }
   pageLink += "</ul></div>";
-
+  // This appends the pageLink to page section
   ulContainer[0].insertAdjacentHTML("afterend", pageLink);
 
   pages[0].className = "active";
 
+  // This loops over the pageNum and adds click event
+  // also class active and takes off from not active links
+  // for each link
   for (let p = 0; p < pageNum; p++) {
     pages[p].addEventListener("click", function(e) {
       showPage(this.innerHTML, studentList);
