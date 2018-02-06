@@ -8,3 +8,5 @@ window.addEventListener("load", () => {
       : (students[i].style.display = "none");
   }
 });
+
+function showPage() {}
