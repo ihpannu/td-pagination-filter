@@ -1,4 +1,4 @@
-const ulContainer = document.getElementsByClassName("student-list");
+const studentContainer = document.getElementsByClassName("student-list");
 const students = document.getElementsByClassName("student-item");
 const pages = document.getElementsByTagName("a");
 
@@ -39,7 +39,7 @@ function appendPageLinks(studentList) {
   }
   pageLink += "</ul></div>";
   // This appends the pageLink to page section
-  ulContainer[0].insertAdjacentHTML("afterend", pageLink);
+  studentContainer[0].insertAdjacentHTML("afterend", pageLink);
 
   pages[0].className = "active";
 
